@@ -3,11 +3,12 @@
         <title>Login</title>
     </head>
     <body>
-        <form action="/criarusuario" method="POST" >
+        <form action="/login" method="POST" >
             {% csrf_token %}
             <input type="text" maxlength="50" placeholder="username" name="username" />
             <input type="password" placeholder="senha" name="senha" />
             <button type="submit">Login</button>
         </form>
+        
     </body>
 </html>

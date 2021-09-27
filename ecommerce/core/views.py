@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-import django.contrib.auth 
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
-from forms import CriarUsuarioForm, LoginForm
-from forms import CriarUsuarioForm, LoginForm
+from .forms import CriarUsuarioForm, LoginForm
 from .models import Categoria, Produto
 
 def criar_usuario(request):
