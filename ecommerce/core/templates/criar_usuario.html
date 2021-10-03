@@ -1,16 +1,17 @@
-<html>
-    <head>
-        <title>Criar Usuario</title>
-    </head>
-    <body>
-        <form action="/criarusuario" method="POST" >
-            {% csrf_token %}
-            <input type="text" maxlength="50" placeholder="username" name="username" />
-            <input type="email" placeholder="email" name="email" />
-            <input type="text" maxlength="100" placeholder="primeiro nome" name="primeiro_nome" />
-            <input type="text" maxlength="100" placeholder="sobrenome" name="sobrenome" />
-            <input type="password" placeholder="senha" name="senha" />
-            <button type="submit">Criar</button>
-        </form>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block titulo %}Registro{% endblock %}
+{% block corpo %}
+<div class="tela-registro">
+    <h1>Registro</h1>
+    {{form.errors}}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <input type="text" placeholder="Primeiro nome" name="primeiro_nome">
+        <input type="text" placeholder="Sobrenome" name="sobrenome">
+        <input type="text" placeholder="Email" name="email">       
+        <input type="password" placeholder="Senha" name="senha">
+        <button type="submit">Enviar</button>
+    </form>   
+</div>
+{% endblock %}

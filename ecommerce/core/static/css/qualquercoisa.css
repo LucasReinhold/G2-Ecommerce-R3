@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+}
+
+.marca {
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    margin: 20px 10px;
+    color: #7d7d7d;
+}
+
+.marca h1 {
+    display: inline;
+}
+
+.marca ul {
+    display: inline;
+    float: right;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.marca li {
+    display: inline;
+    margin: 20px 30px;
+}
+
+.marca a {
+    color: #7d7d7d;
+    text-decoration: none;
+}
+
+.marca a:hover {
+    color: #9d9d9d;
+    text-decoration: none;
+}
+
+.menu ul {
+    display: inline;
+    float: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    background-color: #464952;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.menu li {
+    display: inline;
+    padding: 20px 40px;
+}
+
+.menu a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    border-bottom: 1px #fff solid;
+}
+
+/* TELA REGISTRO */
+
+.tela-registro {
+    width: 600px;
+    margin: auto;
+}
+
+.tela-registro input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: 15px 0;
+}
+
+.tela-registro button {
+    color: #fff;
+    background: #0491bb;
+    margin-left: 2px;
+    margin-bottom: 10px;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+    font-family: Montserrat,sans-serif;
+    padding: 10px 22px;
+    font-size: 11px;
+    line-height: 16px;
+    border-radius: 0;
+    border: 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s ease;
+    width: 100%;
+}
+
+.tela-registro h1 {
+    width: 100%;
+    color: #343434;
+    text-align: center;
+    font-size: 26px;
+    margin-top: 100px;
+    font-family: Open Sans,Montserrat,sans-serif;
+}

@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('criarusuario', views.criar_usuario),
     path('login', views.login),
+    path('categoria/<int:pk>', views.lista_categoria),
 ]
