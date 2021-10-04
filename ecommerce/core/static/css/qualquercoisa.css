@@ -113,3 +113,60 @@ body {
     margin-top: 100px;
     font-family: Open Sans,Montserrat,sans-serif;
 }
+
+/* TELA LOGIN */
+
+.login h1 {
+    width: 100%;
+    color: #343434;
+    text-align: center;
+    font-size: 32px;
+    margin-top: 100px;
+    font-family: Open Sans,Montserrat,sans-serif;
+}
+
+.login button {
+    color: #fff;
+    background: #0491bb;
+    margin-left: 390px;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: none;
+    outline: none;
+    text-decoration: none;
+    font-family: Montserrat,sans-serif;
+    padding: 10px 22px;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 0;
+    border: 0;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s ease;
+    width: 50%;
+    border-radius: .25rem;
+}
+
+.login input{
+    display: block;
+    width: 50%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: 15px 0;
+    margin-left: auto;
+    margin-right: auto; 
+    border-radius: .25rem;
+}
+
+.login button:hover {
+    background-color: deepskyblue;
+}
