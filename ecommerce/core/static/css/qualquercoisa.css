@@ -170,3 +170,95 @@ body {
 .login button:hover {
     background-color: deepskyblue;
 }
+
+/* TELA HOME */
+
+body {
+    margin: 0;
+}
+  
+.marca {
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    margin: 20px 10px;
+    color: #7d7d7d;
+}
+  
+.marca h1 {
+    display: inline;
+}
+  
+.marca ul {
+    display: inline;
+    float: right;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+  
+.marca li {
+    display: inline;
+    margin: 20px 30px;
+}
+  
+.marca a {
+    color: #7d7d7d;
+    text-decoration: none;
+}
+  
+.marca a:hover {
+    color: #9d9d9d;
+    text-decoration: none;
+}
+  
+.menu ul {
+    display: inline;
+    float: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    background-color: #464952;
+    padding: 20px 0;
+    margin: 0;
+}
+  
+.menu li {
+    display: inline;
+    padding: 20px 40px;
+}
+  
+.menu a {
+    color: #FFF;
+    text-decoration: none;
+}
+  
+.menu a:hover {
+    border-bottom: 1px #fff solid;
+}
+  
+.banner img {
+    width: 100%;
+}
+  
+.corpo {
+    width: 100%;
+    display: flex;
+}
+  
+.categorias {
+    display: flex;
+    width: 30%;
+}
+  
+.produtos {
+    display: flex;
+    width: 70%;
+}
+  
+.produto {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: aqua;
+    display: flex;
+}
