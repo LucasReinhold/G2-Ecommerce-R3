@@ -23,4 +23,5 @@ urlpatterns = [
     path('criarusuario', views.criar_usuario),
     path('login', views.login),
     path('categoria/<int:pk>', views.lista_categoria),
+    path('home', views.home),
 ]

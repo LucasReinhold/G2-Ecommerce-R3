@@ -1,27 +1,12 @@
-<html>
-  <head>
-    <title>Luzi's Market</title>
-    <link rel="stylesheet" href="qualquercoisa.html">
-  </head>
-  <body>
-    <header>
-      <div class="marca">
-        <h1>Luzi's Market</h1>
-        <ul>
-          <li><a href="#">Procurar</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </div>
-      <div class="menu">
-        <ul>
-          <li><a href="#">Barba</a></li>
-          <li><a href="#">cabelo</a></li>
-          <li><a href="#">bigode</a></li>
-        </ul>
-      </div>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}home{% endblock %}
+{% block corpo %}
+<div class="tela-home">  
+  <img src="{% static 'img/banner.png'%}">
+  <div class="listaprodutos">
     <div class="banner">
-      <img src="necess.png"/>
+      <img src="banner.png"/>
     </div>
     <div class="corpo">
       <div class="categorias">
@@ -44,6 +29,10 @@
         <div class="produto"></div>
         <div class="produto"></div>
       </div>
-    </div>
-  </body>
-</html>
+    </div>    
+      {% for produto in produtos %}
+    {{produto.nome}}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

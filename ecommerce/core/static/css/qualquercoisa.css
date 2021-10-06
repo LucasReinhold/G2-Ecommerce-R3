@@ -68,7 +68,7 @@ body {
     margin: auto;
 }
 
-.tela-registro input {
+input {
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
@@ -115,7 +115,10 @@ body {
 }
 
 /* TELA LOGIN */
-
+.login {
+    width: 600px;
+    margin: auto;
+}
 .login h1 {
     width: 100%;
     color: #343434;
@@ -128,8 +131,6 @@ body {
 .login button {
     color: #fff;
     background: #0491bb;
-    margin-left: 480px;
-    margin-right: auto;
     text-align: center;
     box-shadow: none;
     outline: none;
@@ -143,119 +144,24 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: all .2s ease;
-    width: 50%;
+    width: 100%;
     border-radius: .25rem;
-}
+ }
 
-.login input{
-    display: block;
-    width: 50%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    margin: 15px 0;
-    margin-left: auto;
-    margin-right: auto; 
-    border-radius: .25rem;
-}
+
 
 .login button:hover {
     background-color: deepskyblue;
 }
 
 /* TELA HOME */
-
-body {
-    margin: 0;
-}
-  
-.marca {
-    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    margin: 20px 10px;
-    color: #7d7d7d;
-}
-  
-.marca h1 {
-    display: inline;
-}
-  
-.marca ul {
-    display: inline;
-    float: right;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-  
-.marca li {
-    display: inline;
-    margin: 20px 30px;
-}
-  
-.marca a {
-    color: #7d7d7d;
-    text-decoration: none;
-}
-  
-.marca a:hover {
-    color: #9d9d9d;
-    text-decoration: none;
-}
-  
-.menu ul {
-    display: inline;
-    float: right;
-    font-weight: bold;
-    text-transform: uppercase;
-    width: 100%;
-    text-align: center;
-    background-color: #464952;
-    padding: 20px 0;
-    margin: 0;
-}
-  
-.menu li {
-    display: inline;
-    padding: 20px 40px;
-}
-  
-.menu a {
-    color: #FFF;
-    text-decoration: none;
-}
-  
-.menu a:hover {
-    border-bottom: 1px #fff solid;
-}
-  
-.banner img {
-    width: 100%;
-}
   
 .corpo {
     width: 100%;
     display: flex;
 }
-  
-.categorias {
-    display: flex;
-    width: 30%;
-}
-  
-.produtos {
-    display: flex;
-    width: 70%;
-}
-  
-.produto {
+
+.listaprodutos {
     width: 200px;
     height: 200px;
     margin: 10px;

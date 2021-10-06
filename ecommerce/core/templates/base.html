@@ -7,7 +7,9 @@
   <body>
     <header>
       <div class="marca">
-        <h1>Luzi's Market</h1>
+        <a href="/home">
+          <h1>Luzi's Barber Shop</h1>
+        </a>
         <ul>
           <li><a href="/criarusuario">Registrar</a></li>
           <li><a href="/login">Login</a></li>
@@ -15,7 +17,9 @@
       </div>
       <div class="menu">
         <ul>
+          {% for categoria in categorias %}
           <li><a href="/categoria/{{categoria.id}}">{{categoria.nome}}</a></li>
+          {% endfor %}
         </ul>
       </div>
     </header>
