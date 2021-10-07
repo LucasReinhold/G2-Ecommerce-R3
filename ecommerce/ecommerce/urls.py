@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 from core import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +26,5 @@ urlpatterns = [
     path('login', views.login),
     path('categoria/<int:pk>', views.lista_categoria),
     path('home', views.home),
-]
+    path('produto/<int:id>', views.detalhe_produto),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

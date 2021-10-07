@@ -2,37 +2,22 @@
 {% load static %}
 {% block titulo %}home{% endblock %}
 {% block corpo %}
-<div class="tela-home">  
-  <img src="{% static 'img/banner.png'%}">
-  <div class="listaprodutos">
-    <div class="banner">
-      <img src="banner.png"/>
-    </div>
-    <div class="corpo">
-      <div class="categorias">
-        <ul>
-          <li>Categoria 1</li>
-          <li>Categoria 2</li>
-          <li>Categoria 3</li>
-          <li>Categoria 4</li>
-        </ul>
-      </div>
-      <div class="produtos">
-        {% for produto in produtos %}
-        <a href="/pomada"><div class="produto">
-          <img src="{{produto.imagem}}">
-          <span>{{produto.nome}}</span>
-        </div></a>
-        {% endfor %}
-        <div class="produto"></div>
-        <div class="produto"></div>
-        <div class="produto"></div>
-        <div class="produto"></div>
-      </div>
-    </div>    
-      {% for produto in produtos %}
-    {{produto.nome}}
-    {% endfor %}
+<div class="tela-home container-fluid">  
+  <div class="row" > 
+    <img src="{% static 'img/banner.png'%}">
   </div>
-</div>
+         
+    <div class="row"> 
+      {% for produto in produtos %}
+      <div class="col-sm-4 produto">
+        <a href="/produto/{{ produto.id }}">
+         <div>
+           <img src="{{ produto.imagem.url }}" alt="">
+         </div>
+         <label> {{ produto.nome }} </label>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+</div>  
 {% endblock %}

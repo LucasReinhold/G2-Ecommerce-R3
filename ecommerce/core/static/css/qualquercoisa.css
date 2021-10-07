@@ -18,11 +18,13 @@ body {
     float: right;
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
 
 .marca li {
     display: inline;
-    margin: 20px 30px;
+    margin: 60px 30px;
 }
 
 .marca a {
@@ -43,7 +45,7 @@ body {
     width: 100%;
     text-align: center;
     background-color: #464952;
-    padding: 20px 0;
+    padding: 15px 0;
     margin: 0;
 }
 
@@ -155,16 +157,15 @@ input {
 }
 
 /* TELA HOME */
-  
-.corpo {
+
+
+
+.tela-home img {
     width: 100%;
-    display: flex;
+    padding: 0;
 }
 
-.listaprodutos {
+.produto img {
     width: 200px;
     height: 200px;
-    margin: 10px;
-    background-color: aqua;
-    display: flex;
 }
