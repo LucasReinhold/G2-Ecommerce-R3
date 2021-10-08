@@ -24,7 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('criarusuario', views.criar_usuario),
     path('login', views.login),
-    path('categoria/<int:pk>', views.lista_categoria),
+    path('categoria/<int:id>', views.lista_categoria),
     path('home', views.home),
     path('produto/<int:id>', views.detalhe_produto),
+    path('adicionar_produto', views.adicionar_produto_carrinho),
+    path('remover_produto', views.remover_produto_carrinho),
+    path('carrinho', views.carrinho),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

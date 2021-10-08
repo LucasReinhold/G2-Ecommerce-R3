@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login as django_login
 from django.contrib.auth.decorators import login_required
 
 from .forms import CriarUsuarioForm, LoginForm
-from .models import Categoria, Produto
+from .models import Carrinho, Categoria, Produto
 
 def criar_usuario(request):
     categorias = Categoria.objects.all()
@@ -19,6 +19,7 @@ def criar_usuario(request):
             )
             user.set_password(form.cleaned_data['senha'])
             user.save()
+            Carrinho.objects.create(user=user)
             return redirect('/login')
     else:
         form = CriarUsuarioForm()
@@ -36,7 +37,7 @@ def login(request):
                 username=form.cleaned_data['username'],
                 password=form.cleaned_data['senha']
             )
-            login(request, user)
+            django_login(request, user)
             return redirect('/home')
     else:
         form = LoginForm()
@@ -55,7 +56,7 @@ def lista_categoria(request, id):
     categoria = get_object_or_404(Categoria, pk=id)
     pagina = request.GET.get('pagina', 1)
     produtos = categoria.produtos.all()[(pagina - 1) * 12: pagina * 12]
-    return render(request, 'list_categoria.html', {
+    return render(request, 'lista_categoria.html', {
         'categorias': categorias,
         'categoria': categoria,
         'produtos': produtos
@@ -70,14 +71,24 @@ def detalhe_produto(request, id):
 
 @login_required
 def adicionar_produto_carrinho(request):
-    pass
+    id = request.POST['produto_id']
+    produto = get_object_or_404(Produto, pk=int(id))
+    carrinho = request.user.carrinho
+    carrinho.produtos.add(produto)
+    return redirect('/carrinho')
 
 
 @login_required
 def remover_produto_carrinho(request):
-    pass
+    id = request.POST['produto_id']
+    produto = get_object_or_404(Produto, pk=int(id))
+    carrinho = request.user.carrinho
+    carrinho.produtos.remove(produto)
+    return redirect('/carrinho')
 
 
 @login_required
 def carrinho(request):
-    pass
+    produtos_carrinho = request.user.carrinho.produtos.all()
+    categorias = Categoria.objects.all()
+    return render(request, 'carrinho.html', {'produtos_carrinho': produtos_carrinho, 'categorias': categorias})

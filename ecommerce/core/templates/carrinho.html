@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titulo %}home{% endblock %}
+{% block corpo %}
+  {% for produto in produtos_carrinho %}
+    {{produto.nome}}
+  {% endfor %}
+{% endblock %}
