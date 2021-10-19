@@ -170,3 +170,30 @@ input {
     height: 200px;
 }
 
+.produto .img {
+    display: flex;
+    justify-content: center;
+
+}
+
+.produto label{
+    width: 100%;
+    text-align: center;
+}
+
+.produto span {
+    top: -210px; 
+    right: 100px;
+    display: block;
+    font-weight: bold;
+    position: relative;
+    font-size: 22px;
+}
+
+.produto {
+    text-align: center;
+}
+
+
+
+/* carrinho */

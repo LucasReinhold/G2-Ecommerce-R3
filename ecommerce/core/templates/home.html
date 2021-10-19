@@ -6,17 +6,16 @@
   <div class="row" > 
     <img src="{% static 'img/banner.png'%}">
   </div>
-         
+      
     <div class="row"> 
       {% for produto in produtos %}
       <div class="col-sm-4 produto">
-        <a href="/produto/{{ produto.id }}">
-         <div>
+         <div class="img">
            <img src="{{ produto.imagem.url }}" alt="">
          </div>
          <label> {{ produto.nome }} </label>
-         <label> {{ produto.preco }} </label>
-        </a>
+        <span>${{ produto.preco }}</span> 
+        <a href="produto/{{ produto.id }}" class="btn btn-primary">Adicionar ao carrinho </a>
       </div>
       {% endfor %}
     </div>

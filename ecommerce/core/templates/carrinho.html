@@ -2,7 +2,27 @@
 {% load static %}
 {% block titulo %}home{% endblock %}
 {% block corpo %}
-  {% for produto in produtos_carrinho %}
-    {{produto.nome}}
-  {% endfor %}
+  <div class="row"> 
+      {% for produto in produtos_carrinho %}
+        <div class="col-sm-4 produto">
+          <div class="img">
+            <img src="{{ produto.imagem.url }}" alt="">
+          </div>
+        </div>
+        <div class="col-sm-4 produto">
+           {{ produto.nome }}
+        </div>
+        <div class="col-sm-4 produto">
+          {{ produto.preco }}
+        </div> 
+      {% endfor %}
+      <div class="row">
+        <div class="col-sm-4 produto"> </div>
+        <div class="col-sm-4 produto"> </div>
+        <div class="col-sm-4 produto">
+           <a href="produto/{{ produto.id }}" class="btn btn-primary">Finalizar Compra </a>
+        </div> 
+      </div>
+    </div>
+</div>  
 {% endblock %}
