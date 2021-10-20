@@ -2,18 +2,19 @@
 {% load static %}
 {% block titulo %}home{% endblock %}
 {% block corpo %}
-<div class="row">
+<div class="detalhes row">
     <div class="col-sm-6">
         <img src="{{ produto.imagem.url }}" alt="">
     </div>
     <div class="col-sm-6">
-        <p>"{{ produto.descricao }}</p>
+        <h1>{{ produto.nome }}</h1>
+        <span>R$ {{produto.preco|stringformat:".2f"}}</span>
+        <p>{{ produto.descricao }}</p>
         <form method="POST" action="/adicionar_produto">
             {% csrf_token %}
             <input type="hidden" name="produto_id" value="{{produto.id}}" />
             <button type="submit" class="btn btn-primary" >Adicionar</button>
-            </form>
+        </form>
     </div>
-    </div>
-
+</div>
 {% endblock %}

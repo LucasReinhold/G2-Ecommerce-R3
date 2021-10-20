@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
 from django.contrib.auth.decorators import login_required
 
 from .forms import CriarUsuarioForm, LoginForm
-from .models import Carrinho, Categoria, Produto
+from .models import Carrinho, Categoria, Produto, ProdutoCarrinho
 
 def criar_usuario(request):
     categorias = Categoria.objects.all()
@@ -74,7 +74,15 @@ def adicionar_produto_carrinho(request):
     id = request.POST['produto_id']
     produto = get_object_or_404(Produto, pk=int(id))
     carrinho = request.user.carrinho
-    carrinho.produtos.add(produto)
+    try:
+        produto_carrinho = ProdutoCarrinho.objects.get(carrinho=carrinho, produto=produto)
+        produto_carrinho.quantidade = produto_carrinho.quantidade + 1
+        produto_carrinho.save()
+    except ProdutoCarrinho.DoesNotExist:
+        ProdutoCarrinho.objects.create(
+            carrinho=carrinho,
+            produto=produto
+        )
     return redirect('/carrinho')
 
 
@@ -83,7 +91,18 @@ def remover_produto_carrinho(request):
     id = request.POST['produto_id']
     produto = get_object_or_404(Produto, pk=int(id))
     carrinho = request.user.carrinho
-    carrinho.produtos.remove(produto)
+    try:
+        produto_carrinho = ProdutoCarrinho.objects.get(carrinho=carrinho, produto=produto)
+        produto_carrinho.quantidade = produto_carrinho.quantidade - 1
+        if produto_carrinho.quantidade <= 0:
+            produto_carrinho.delete()
+        else:
+            produto_carrinho.save()
+    except ProdutoCarrinho.DoesNotExist:
+        ProdutoCarrinho.objects.create(
+            carrinho=carrinho,
+            produto=produto
+        )
     return redirect('/carrinho')
 
 
@@ -92,3 +111,8 @@ def carrinho(request):
     produtos_carrinho = request.user.carrinho.produtos.all()
     categorias = Categoria.objects.all()
     return render(request, 'carrinho.html', {'produtos_carrinho': produtos_carrinho, 'categorias': categorias})
+
+@login_required
+def logout(request):
+    django_logout(request)
+    return redirect('/home')

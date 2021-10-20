@@ -2,27 +2,51 @@
 {% load static %}
 {% block titulo %}home{% endblock %}
 {% block corpo %}
-  <div class="row"> 
-      {% for produto in produtos_carrinho %}
-        <div class="col-sm-4 produto">
-          <div class="img">
-            <img src="{{ produto.imagem.url }}" alt="">
-          </div>
-        </div>
-        <div class="col-sm-4 produto">
-           {{ produto.nome }}
-        </div>
-        <div class="col-sm-4 produto">
-          {{ produto.preco }}
-        </div> 
-      {% endfor %}
-      <div class="row">
-        <div class="col-sm-4 produto"> </div>
-        <div class="col-sm-4 produto"> </div>
-        <div class="col-sm-4 produto">
-           <a href="produto/{{ produto.id }}" class="btn btn-primary">Finalizar Compra </a>
-        </div> 
-      </div>
+<div class='carrinho'>
+  <div class="row">
+    <div class="col-sm-4">
+      <h2></h2>
     </div>
-</div>  
-{% endblock %}
+    <div class="col-sm-4">
+      <h2>Descrição</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2>Quantidade</h2>
+    </div>
+    <div class="col-sm-2">
+      <h2>Preço</h2>
+    </div>
+  </div>
+  {% for produto_carrinho in produtos_carrinho %}
+        <div class="row border">
+          <div class="col-sm-4">
+            <div class="img">
+              <img src="{{ produto_carrinho.produto.imagem.url }}" alt="">
+            </div>
+          </div>
+          <div class="col-sm-4 align">
+            <p>{{ produto_carrinho.produto.nome }}</p>
+          </div>
+          <div class="col-sm-2 align">
+            <form method="POST" action="/remover_produto">
+              {% csrf_token %}
+              <input type="hidden" name="produto_id" value="{{produto_carrinho.produto.id}}" />
+              <button type="submit" class="btn btn-secondary">-</button>
+            </form>
+            <span>{{ produto_carrinho.quantidade }}</span>
+            <form method="POST" action="/adicionar_produto">
+              {% csrf_token %}
+              <input type="hidden" name="produto_id" value="{{produto_carrinho.produto.id}}" />
+              <button type="submit" class="btn btn-secondary">+</button>
+            </form>
+          </div> 
+          <div class="col-sm-2 align">
+            <span>R$ {{ produto_carrinho.produto.preco|stringformat:".2f" }}</span>
+          </div>
+        </div> 
+        {% endfor %}
+        <div class="row">
+          <a href="#" class="btn btn-primary">Finalizar Compra </a>
+        </div>
+</div>
+{% endblock %}    

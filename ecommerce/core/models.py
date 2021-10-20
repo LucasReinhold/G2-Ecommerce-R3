@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.base import ModelStateFieldsCacheDescriptor
 
 
 class Categoria(models.Model):
@@ -23,4 +24,9 @@ class Produto(models.Model):
 
 class Carrinho(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='carrinho')
-    produtos = models.ManyToManyField(Produto)
+
+
+class ProdutoCarrinho(models.Model):
+    carrinho = models.ForeignKey(Carrinho, on_delete=models.CASCADE, related_name='produtos')
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    quantidade = models.IntegerField(default=1)

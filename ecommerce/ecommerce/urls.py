@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.shortcuts import redirect
 
 from core import views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    path('', lambda _: redirect('/home')),
     path('admin/', admin.site.urls),
     path('criarusuario', views.criar_usuario),
     path('login', views.login),
@@ -30,4 +32,5 @@ urlpatterns = [
     path('adicionar_produto', views.adicionar_produto_carrinho),
     path('remover_produto', views.remover_produto_carrinho),
     path('carrinho', views.carrinho),
+    path('logout', views.logout),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

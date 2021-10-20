@@ -70,7 +70,7 @@ body {
     margin: auto;
 }
 
-input {
+.tela-registro input {
     display: block;
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
@@ -150,7 +150,22 @@ input {
     border-radius: .25rem;
  }
 
-
+.login input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: 15px 0;
+}
 
 .login button:hover {
     background-color: deepskyblue;
@@ -197,3 +212,64 @@ input {
 
 
 /* carrinho */
+
+.carrinho h2 {
+    color: #404040;
+    font-family: Arial, Helvetica, "Liberation Sans", Roboto, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.carrinho .align {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.carrinho .border {
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.carrinho .align p {
+    width: 100%;
+}
+
+.carrinho .align span {
+    width: 100%;
+    font-weight: bold;
+}
+
+.carrinho img {
+    width: 200px;
+    height: 200px;
+}
+
+.detalhes img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.detalhes h1 {
+    margin: 30px 0px;
+    font-size: 36px;
+    line-height: normal;
+    color: #404040;
+    font-weight: 400;
+    font-family: arial, tahoma, verdana, sans-serif;
+}
+
+.detalhes span {
+    font-family: arial, tahoma, verdana, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.detalhes p {
+    margin: 30px 0px;
+    font-family: arial, tahoma, verdana, sans-serif;
+    color: #404040;
+}

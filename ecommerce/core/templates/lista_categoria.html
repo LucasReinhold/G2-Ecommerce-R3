@@ -2,5 +2,17 @@
 {% load static %}
 {% block titulo %}home{% endblock %}
 {% block corpo %}
-
+    <div class="row"> 
+      {% for produto in produtos %}
+      <div class="col-sm-4 produto">
+         <div class="img">
+           <img src="{{ produto.imagem.url }}" alt="">
+         </div>
+         <label> {{ produto.nome }} </label>
+        <span>${{ produto.preco }}</span> 
+        <a href="/produto/{{ produto.id }}" class="btn btn-primary">Ver detalhes</a>
+      </div>
+      {% endfor %}
+    </div>
+</div>  
 {% endblock %}
